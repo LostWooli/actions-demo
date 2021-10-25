@@ -1,10 +1,44 @@
 name: demo-action
 
 on:
+  workflow_call:
+    inputs:
+      username:
+        description: 'A Username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
+
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+        required: false
+
+  #schedule:
+    # * is a special character in YAML so you have to quote this string
+    #- cron:  '30 5,17 * * *'
+
   push:
     branches:
       - main
-      - master
+    tags:
+      - v1.*
+    branches-ignore:
+      - dev
+    tags-ignore:
+      - v2
+  pull_request:
+    branches:
+      - main
+  page_build:
+    release:
+      types:
+        - created
 
 jobs:
   Job_1_directory_actions:
@@ -28,3 +62,17 @@ jobs:
       - name: Show SHA
         run: |
            echo $${{ github.sha }}
+  
+  Job_3_print_username:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Print Username to STDOUT
+          run: echo The username is ${{ inputs.username }}
+
+  Job_4_print_env_vars:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Print env vars
+          run: |
+            echo The GITHUB_ACTOR is ${{ GITHUB_ACTOR }}
+            echo The RUNNER_TEMP is ${{ RUNNER_TEMP }}
