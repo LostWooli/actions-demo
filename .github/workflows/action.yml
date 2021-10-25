@@ -74,5 +74,5 @@ jobs:
       steps:
         - name: Print env vars
           run: |
-            echo The GITHUB_ACTOR is ${{ GITHUB_ACTOR }}
-            echo The RUNNER_TEMP is ${{ RUNNER_TEMP }}
+            echo The GITHUB_ACTOR is ${{ github.actor }}
+            echo The RUNNER_TEMP is ${{ runner.temp }}
