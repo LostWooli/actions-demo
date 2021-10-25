@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  DirActions:
+  Job 1 directory actions:
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Code
@@ -19,7 +19,7 @@ jobs:
         run: |
            ls -al
 
-  showSHA:
+  Job 2 show SHA:
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Code
