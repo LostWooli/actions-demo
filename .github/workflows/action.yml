@@ -59,20 +59,14 @@ jobs:
     steps:
       - name: Check Out Code
         uses: actions/checkout@v2
-      - name: Show SHA
+      - name: Show vars
         run: |
            echo $${{ github.sha }}
+           echo The GITHUB_ACTOR is ${{ github.actor }}
+          echo The RUNNER_TEMP is ${{ runner.temp }}
   
   Job_3_print_username:
     runs-on: ubuntu-latest
       steps:
         - name: Print Username to STDOUT
           run: echo The username is ${{ inputs.username }}
-
-  Job_4_print_env_vars:
-    runs-on: ubuntu-latest
-      steps:
-        - name: Print env vars
-          run: |
-            echo The GITHUB_ACTOR is ${{ github.actor }}
-            echo The RUNNER_TEMP is ${{ runner.temp }}
