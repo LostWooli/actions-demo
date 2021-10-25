@@ -12,9 +12,12 @@ jobs:
     steps:
       - name: Check Out Code
         uses: actions/checkout@v2
-      - name: List dir
+      - name: Show dir
         run: |
             pwd
-            ls -al
-            echo $${{ github.sha }}
-            
+      - name: List Dir
+        run: |
+           ls -al
+      - name: Show SHA
+        run: |
+           echo $${{ github.sha }}
