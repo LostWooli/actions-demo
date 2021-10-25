@@ -1,0 +1,20 @@
+name: demo-action
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Code
+        uses: actions/checkout@v2
+      - name: List dir
+        run: |
+            pwd
+            ls -al
+            echo $${{ github.sha }}
+            
