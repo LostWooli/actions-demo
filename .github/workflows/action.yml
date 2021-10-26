@@ -75,4 +75,6 @@ jobs:
     needs: Job_2_show_vars
     steps:
       - name: Print Username to STDOUT
-        run: echo The username is ${{ inputs.username }}
+        run: |
+          echo "The username is ${{ inputs.username }}"
+        shell: bash
