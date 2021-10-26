@@ -76,5 +76,7 @@ jobs:
     steps:
       - name: Print Username to STDOUT
         run: |
-          echo "The username is ${{ inputs.username }}"
+          echo "The username is $MY_VAR"
         shell: bash
+        env:
+          MY_VAR: ${{ inputs.username }}
