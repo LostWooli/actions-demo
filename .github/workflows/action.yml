@@ -68,6 +68,6 @@ jobs:
   Job_3_print_username:
    runs-on: ubuntu-latest
    needs: Job_2_show_vars
-     steps:
-       - name: Print Username to STDOUT
-         run: echo The username is ${{ inputs.username }}
+    steps:
+      - name: Print Username to STDOUT
+        run: echo The username is ${{ inputs.username }}
