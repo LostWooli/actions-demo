@@ -28,10 +28,10 @@ on:
       - main
     tags:
       - v1.*
-    branches-ignore:
-      - dev
-    tags-ignore:
-      - v2
+    #branches-ignore:
+    #  - dev
+    #tags-ignore:
+    #  - v2
   pull_request:
     branches:
       - main
