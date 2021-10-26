@@ -1,18 +1,18 @@
 name: demo-action
 
 on:
-  workflow_call:
-    inputs:
-      username:
-        description: 'A Username passed from the caller workflow'
-        default: 'john-doe'
-        required: false
-        type: string
+  # workflow_call:
+  #   inputs:
+  #     username:
+  #       description: 'A Username passed from the caller workflow'
+  #       default: 'john-doe'
+  #       required: false
+  #       type: string
 
   workflow_dispatch:
     inputs:
       username:
-        description: 'A Username passed from the caller workflow'
+        description: 'A Username passed from the workflow dispatch'
         default: 'john-doe'
         required: false
         type: string
